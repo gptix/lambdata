@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-def train_val_test_split(X, y){
+def train_val_test_split(X, y):
         """
 Split arrays or matrices into random train, validation, and test subsets.
 Wraps sklearn.model_selection.train_test_split.
