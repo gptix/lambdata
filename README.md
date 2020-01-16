@@ -1,94 +1,57 @@
-# Python Modules, Packages, and Environments
+# Welcome to Lambdata!
 
-Places for your code (and dependencies) to live.
+This is a high-quality README.md file:
+- It is skimmable
+- It will have appropriate examples, details, and links for someone 
+who wants to understand the code in this repo.
 
-## Learning Objectives
+## Overview
 
-- Understand and follow Python namespaces and imports
-- Create a Python package and install dependencies in a dedicated environment
+This repository is work done as part of instruction for Lambda School 
+Data Science Cohort 10 (**Go Laser Sharks!**).
 
-## Before Lecture
+## Objectives
 
-Install [Anaconda](https://www.anaconda.com/distribution) on your local machine
-if you haven't already, and read the official documentation for
-[Python modules](https://docs.python.org/3.7/tutorial/modules.html).
+Work this week has been to familiarize students with 
+- using the command line,
+- packaging code as a module,
+- versioning module revisions,
+- compiling modules using **twine**,
+- pushing modules to repositories,
+- using PEP8 to adhere to stylistic conventions
+- object-oriented programming,
+- and unit tests.
 
-## Live Lecture Task
+### The ```/lambdata-gptix``` directory / folder / sub-repo
 
-We're going to start our own Python package the right way - by making an
-environment with `pipenv`, installing our dependencies, and making some classes.
+This exists to serve as a container, with usable name via 
+ ```pip install```, to hold files that hold code for things to be imported.
 
-## Assignment
+### ```__Init__.py```
 
-1) DONE -- Create your own `lambdata-yourusername` package, as shown in lecture
+An ```__init__.py``` file was made, including a couple of definitions 
+that obtain throughout the module.
 
-2) DONE -- Implement at least 2 of the following "helper" utility functions:
-
-  - [X] Check a dataframe for nulls, print/report them in a nice "pretty" format
-
-Named: train_val_test_split()
-
- 
-  - Report a confusion matrix, with labels for easier interpretation
-  - Train/*validate*/test split function for a dataframe
-  - "Generate more data" function, takes dataframes and makes more rows
-  - Contingency table + Chi-squared report function: takes two categorical
-    variables, outputs a contingency table and corresponding Chi-squared test
-  - Split addresses into multiple columns city, state zip -> df['city]
-    df['state'] df['zip'] use regexes to detect format and pull out important
-    pieces
-  - State abbreviation -> Full Name and visa versa. FL -> Florida, etc.
-    (Handle Washington DC and territories like Puerto Rico etc.)
-    
-    
-  - [X] Single function to take a list, turn it into a series and add it to a
-    dataframe as a new column
-    
-Named:  add_list_to_frame():    
-    
-  - 1.5*Interquartile range outlier detection/removal function.
-  - Function to set notebook display options.
-  - Function to split dates ("MM/DD/YYYY", etc.) into multiple columns
-  - Your idea here! (You will implement more later in the week as well)
-3) DONE - Register for a [test PyPI account](https://test.pypi.org/account/register/)
+## ```def_utils.py```
+A file was created to show how to package functions so that, once a
+module is installed, a function can be used.
 
 
-4) TODO - Publish your package as `lambdata-yourusername` (to avoid conflicts)
-5) Start a Python notebook, and install your package with
-  `!pip install --index-url https://test.pypi.org/simple/ lambdata-yourusername`
-6) TODO - `import lambdata_yourusername as lambdata` in your notebook, and try it out!
+## ```setup.py``` 
+This file is used when packaging code for upload to test.pypi.
 
-We'll step through in lecture - building and publishing a package requires
-`twine`, and is generally done with these commands:
-- `python setup.py sdist bdist_wheel` (build the actual package)
-- `twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
+# Using this module:
+```$ pip install lambdata-gptix as gpt
+# with X being a matrix of features, and y being a vector of targets,
+# create subsets for training, validation, and testing.
+$ X_train, X_val, X_test, y_train, y_val, y_test = gpt.def train_val_test_split(X, y)
+$ gpt.train_val_test_split --help
 
-`twine` itself can be installed with `pipenv install -d twine` so it is a
-development dependency.
-
-Many of the utility functions can be implemented with the right clever calls
-to `pandas`, `numpy`, and other libraries - that's fine! Use those as
-dependencies. There's still value in a package that encapsulates more
-complicated libraries and exposes streamlined functionality with a simplified
-API.
-
-Also note - there's a lot more than 2 ideas above. Throughout the week, whenever
-you have finished the daily assignment baseline, you can always come back and
-add more functionality to your `lambdata` (including ideas of your own)!
-
-## Resources and Stretch Goals
-
-The [official Python packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/)
-can help you if you get stuck with the assignment. Make sure to use Test PyPI!
-If you get through all the steps, try some of the following stretch goals:
-
-- Check out the source code for [pandas](https://github.com/pandas-dev/pandas),
-  and see if you can make sense of it. Try to find the actual logic behind
-  specific functions you use (e.g. `pd.DataFrame`, `df.replace`, etc.). Reading
-  source code is challenging, especially from large codebases, but it's a skill
-  that will help you debug and fix real issues in professional situations.
-
-- Explore [PyPI](https://pypi.org), the Python Package Index - this is where
-  `pip` (the official base Python package installer, which both Anaconda and
-  `pipenv` build on) gets things from by default. For now stick with Test PyPI
-  for your own publishing, but you can work to make things "real"!
+# With df being a pandas dataframe, and mylist being a list of values to
+# add to df as a Series/column (the lengths of df and mylist being equal),
+# return a dataframe that is df with mylist appended as a new Series/column.
+$ df = pandas.DataFrame([[1, 2], [3, 4], [5, 6]])
+$ mylist = ['cat', 'dog', 'sparrow']
+$ foo =  gpt.add_list_to_frame(df, mylist)
+$ foo
+$ gpt.add_list_to_frame --help
