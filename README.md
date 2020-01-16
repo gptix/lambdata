@@ -27,7 +27,7 @@ Work this week has been to familiarize students with
 This exists to serve as a container, with usable name via 
  ```pip install```, to hold files that hold code for things to be imported.
 
-### ```__Init__.py```
+### ```__init__.py```
 
 An ```__init__.py``` file was made, including a couple of definitions 
 that obtain throughout the module.
